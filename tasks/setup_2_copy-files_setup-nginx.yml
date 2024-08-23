@@ -1,0 +1,33 @@
+---
+  - name: Create folders
+    ansible.builtin.file:
+      path: "{{ item }}"
+      state: directory
+    loop:
+      - "{{ FORGEJO_PATH }}"
+      - "{{ FORGEJO_PATH }}/volumes"
+      - "{{ FORGEJO_PATH }}/volumes/postgresql-data"
+      - "{{ FORGEJO_PATH }}/volumes/postgresql-docker-entrypoint-initdb.d"
+      - "{{ FORGEJO_PATH }}/volumes/forgejo-data"
+      - "{{ FORGEJO_PATH }}/backups"
+      - "{{ FORGEJO_PATH }}/backups/database"
+      - "{{ FORGEJO_PATH }}/backups/tarballs"
+      - "{{ FORGEJO_PATH }}/backups/logs"
+      - "{{ FORGEJO_PATH }}/scripts"
+      - "{{ FORGEJO_PATH }}/docs"
+
+
+  - name: Copy docker compose file
+    ansible.builtin.template:
+      src: "{{ role_path }}/templates/FORGEJO_docker-compose.yml.j2"
+      dest: "{{ FORGEJO_PATH }}/docs/docker-compose.yml"
+
+  - name: Install nginx
+    ansible.builtin.package:
+      name: nginx
+      state: 'latest'
+
+  - name: Install sqlite3
+    ansible.builtin.package:
+      name: sqlite3
+

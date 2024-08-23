@@ -1,0 +1,7 @@
+---
+  - name: Create forgejo ZFS volume
+    community.general.zfs:
+      name: "{{ FORGEJO_STORAGE_ZFS_POOL }}/{{ FORGEJO_STORAGE_ZFS_FS }}"
+      state: present
+      extra_zfs_properties:
+        mountpoint: "{{ FORGEJO_PATH }}"

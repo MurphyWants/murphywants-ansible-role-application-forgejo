@@ -1,0 +1,7 @@
+---
+  - name: Start forgejo
+    community.docker.docker_compose:
+      project_src: "{{ FORGEJO_PATH }}/docs"
+      files: "docker-compose.yml"
+      pull: true
+
