@@ -9,6 +9,8 @@
       - "{{ FORGEJO_PATH }}/volumes/postgresql-data"
       - "{{ FORGEJO_PATH }}/volumes/postgresql-docker-entrypoint-initdb.d"
       - "{{ FORGEJO_PATH }}/volumes/forgejo-data"
+      - "{{ FORGEJO_PATH }}/volumes/forgejo-var-lib-gitea"
+      - "{{ FORGEJO_PATH }}/volumes/forgejo-etc-gitea"
       - "{{ FORGEJO_PATH }}/backups"
       - "{{ FORGEJO_PATH }}/backups/database"
       - "{{ FORGEJO_PATH }}/backups/tarballs"

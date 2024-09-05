@@ -27,6 +27,8 @@ services:
       - net_forgejo
     volumes:
       - {{ FORGEJO_PATH }}/volumes/forgejo-data:/data
+      - {{ FORGEJO_PATH }}/volumes/forgejo-var-lib-gitea:/var/lib/gitea
+      - {{ FORGEJO_PATH }}/volumes/forgejo-etc-gitea:/etc/gitea
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
