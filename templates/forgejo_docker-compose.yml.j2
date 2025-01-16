@@ -20,6 +20,8 @@ services:
       - FORGEJO__database__NAME={{ FORGEJO_POSTGRES_ENV_POSTGRES_DB }}
       - FORGEJO__database__USER={{ FORGEJO_POSTGRES_ENV_POSTGRES_USER }}
       - FORGEJO__database__PASSWD={{ FORGEJO_POSTGRES_ENV_POSTGRES_PASSWORD }}
+      - FORGEJO__server__SSH_PORT={{ FORGEJO_SSH_PORT }} # Port open onthe host, mapped to the container
+      - FORGEJO__server__SSH_LISTEN_PORT=2222 # Port open inside the container
     restart: always
     networks:
       - net_forgejo
