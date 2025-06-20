@@ -10,7 +10,7 @@ networks:
 
 services:
   forgejo:
-    image: codeberg.org/forgejo/forgejo:8-rootless
+    image: codeberg.org/forgejo/forgejo:{{ FORGEJO_CONTAINER_VERSION }}
     container_name: forgejo
     environment:
       - USER_UID={{ FORGEJO_PUID }}
